@@ -8,7 +8,7 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AccessPage />} />
-        <Route path="/home" element={<PostPage></PostPage>} />
+        <Route path="/home" element={<PostPage />} />
         <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </BrowserRouter>
