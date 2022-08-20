@@ -4,9 +4,36 @@ const Sidebar = () => {
   return (
     <div className={styles.sidebar_box}>
       <input placeholder="Search Twitter" />
-      <div className={styles.sidebar_trendBox}>
-        <div>Trends for you</div>
-        <div>내용 추가 예정....</div>
+      <div className={styles.trendBox}>
+        <h2>나를 위한 트렌드</h2>
+        <div className={styles.textBox}>
+          <div>Trends for you</div>
+          <p>내용 추가 예정....</p>
+        </div>
+        <div className={styles.textBox}>
+          <div>Trends for you</div>
+          <p>내용 추가 예정....</p>
+        </div>
+        <div className={styles.textBox}>
+          <div>Trends for you</div>
+          <p>내용 추가 예정....</p>
+        </div>
+        <div className={styles.textBox}>
+          <div>Trends for you</div>
+          <p>내용 추가 예정....</p>
+        </div>
+        <div className={styles.textBox}>
+          <div>Trends for you</div>
+          <p>내용 추가 예정....</p>
+        </div>
+        <div className={styles.textBox}>
+          <div>Trends for you</div>
+          <p>내용 추가 예정....</p>
+        </div>
+        <div className={styles.textBox}>
+          <div>Trends for you</div>
+          <p>내용 추가 예정....</p>
+        </div>
       </div>
     </div>
   );
