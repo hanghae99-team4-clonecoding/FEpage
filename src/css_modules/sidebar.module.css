@@ -1,0 +1,11 @@
+.sidebar_box {
+  display: flex;
+  flex-direction: column;
+  width: 35rem;
+  height: 40rem;
+  justify-content: space-around;
+}
+.sidebar_trendBox {
+  display: flex;
+  flex-direction: column;
+}
