@@ -4,16 +4,15 @@ import Sidebar from "../components/Sidebar";
 import MainContents from "../components/MainContents";
 import Layout from "../components/common/layout";
 import MyProfile from "../components/MyProfile";
-
+import AddPost from "../components/AddPost";
 const MyPage = () => {
   return (
     <>
       <Layout>
         <Header />
         <PostLayout>
-          <MainContents>
-            <MyProfile />
-          </MainContents>
+          <MyProfile />
+
           <Sidebar />
         </PostLayout>
       </Layout>

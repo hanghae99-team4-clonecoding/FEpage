@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import api from "../../api/api";
 
 //http://43.200.177.45/api/post
 //http://43.200.177.45/api/test/post
@@ -13,8 +14,9 @@ const initialState = {
 
 const getPosts = createAsyncThunk("get/getPosts", async (thunkApi) => {
   try {
-    const res = await axios.get(`http://localhost:3001/data`);
-    return res.data;
+    const res = await // axios.get(`http://43.200.177.45/api/test/post`);
+    api("/test/post");
+    return res.data.data;
   } catch (error) {
     return error.message;
   }
@@ -31,8 +33,9 @@ export const postSlice = createSlice({
     });
     builder.addCase(getPosts.fulfilled, (state, action) => {
       state.loading = false;
+      //!무한스크롤시 push로 바꿔주기
       state.posts = action.payload;
-      state.email = action.payload.map((x) => x.email);
+      // state.email = action.payload.map((x) => x.email);
       state.error = "";
     });
     builder.addCase(getPosts.rejected, (state, action) => {

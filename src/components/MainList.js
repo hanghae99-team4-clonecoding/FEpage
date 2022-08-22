@@ -1,4 +1,5 @@
 import icon_profile from "../svg/icon_profile.svg";
+import icon_likesfilled from "../svg/icon_likesfilled.svg";
 import icon_likes from "../svg/icon_likes.svg";
 import icon_comment from "../svg/icon_comment.svg";
 import styles from "../css_modules/mainList.module.css";
@@ -6,26 +7,29 @@ import Loading from "./Loading";
 import { useSelector, useDispatch } from "react-redux";
 import { getPosts } from "../redux/modules/mainListSlice";
 import { useEffect, useState } from "react";
+import Likes from "./Likes";
 
 const MainList = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.postSlice.posts);
-  const emails = useSelector((state) => state.postSlice.email);
-  const [id, setId] = useState([]);
+  console.log(posts);
+  //const email = useSelector((state) => state.postSlice.email);
+  // const [id, setId] = useState([]);
 
   const [data, setData] = useState([]);
   const [loadingToggle, setLoadingToggle] = useState(true);
-  console.log(id);
+  // console.log(id);
   //!처음에 빈배열로 들어온다.
+  const [page, setPage] = useState(1);
   useEffect(() => {
-    dispatch(getPosts());
+    dispatch(getPosts(page));
     // setTimeout(() => {
     //   setLoadingToggle(false);
     // }, 3000);
 
     if (data.length === 0) {
       setData((current) => [...current, ...posts]);
-      setId(emails.map((x) => x.split("@")));
+      // setId(emails.map((x) => x.split("@")));
       setLoadingToggle(true);
     } else setLoadingToggle(false);
   }, [data]);
@@ -49,20 +53,22 @@ const MainList = () => {
                   <div className={styles.list_profile}></div>
                 </div>
 
-                <div>{id[i][0]}</div>
+                <span>{x.email}</span>
                 <div className={styles.list_contents}>
-                  <div>{x.content}</div>
+                  <div className={styles.desc}>{x.content}</div>
                   <div className={styles.imgArea}>
                     <img src={x.image} alt="" />
                   </div>
-                  <div>
+                  <div className={styles.list_info}>
                     <div>
-                      <img src={icon_likes}></img>
-                      <span>2</span>
+                      <Likes i={i} />
                     </div>
                     <div>
-                      <img src={icon_comment}></img>
-                      <span>3</span>
+                      <img
+                        className={styles.info_icon}
+                        src={icon_comment}
+                      ></img>
+                      <span className={styles.info_number}>3</span>
                     </div>
                   </div>
                 </div>
