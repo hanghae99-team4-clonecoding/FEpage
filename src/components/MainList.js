@@ -11,28 +11,43 @@ import Likes from "./Likes";
 
 const MainList = () => {
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.postSlice.posts);
-  console.log(posts);
-  //const email = useSelector((state) => state.postSlice.email);
-  // const [id, setId] = useState([]);
+  const data = useSelector((state) => state.postSlice.posts);
 
-  const [data, setData] = useState([]);
-  const [loadingToggle, setLoadingToggle] = useState(true);
-  // console.log(id);
+  const [error, setError] = useState(false);
+  if (error == true) {
+    console.log("마지막 페이지 입니다.");
+  }
+  const [loadingToggle, setLoadingToggle] = useState(false);
   //!처음에 빈배열로 들어온다.
   const [page, setPage] = useState(1);
-  useEffect(() => {
-    dispatch(getPosts(page));
-    // setTimeout(() => {
-    //   setLoadingToggle(false);
-    // }, 3000);
 
-    if (data.length === 0) {
-      setData((current) => [...current, ...posts]);
-      // setId(emails.map((x) => x.split("@")));
-      setLoadingToggle(true);
-    } else setLoadingToggle(false);
-  }, [data]);
+  //!무한스크롤 기능구현--------------
+  const handleScroll = () => {
+    const scrollHeight = document.documentElement.scrollHeight;
+    const scrollTop = document.documentElement.scrollTop;
+    const clientHeight = document.documentElement.clientHeight;
+    console.log("스크롤 이벤트 발생");
+    if (scrollTop + clientHeight >= scrollHeight) {
+      console.log("페이지 끝에 스크롤이 닫았음. ");
+      setPage((prev) => prev + 1);
+    }
+  };
+
+  const getData = () => {
+    dispatch(getPosts({ page, setError }));
+  };
+  //페이지가 달라질 때마다 getData함수를 호출
+  useEffect(() => {
+    getData();
+  }, [page]);
+
+  //!스크롤이 될때마다 발생
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -40,8 +55,6 @@ const MainList = () => {
         <Loading />
       ) : (
         data.map((x, i) => {
-          // const email = x.email.split("@");
-          // setId(email[0]);
           return (
             <div key={x.postId} className={styles.mainWarp}>
               <div className={styles.profileImg}>

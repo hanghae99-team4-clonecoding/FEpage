@@ -14,34 +14,6 @@ const MyProfile = () => {
   useEffect(() => {
     dispatch(getMyPosts());
   }, []);
-  //!----------여기부터는 무한스크롤 테스트
-  // const [page, setPage] = useState(1);
-  // const handleScroll = () => {
-  //   const scrollHeight = document.documentElement.scrollHeight;
-  //   const scrollTop = document.documentElement.scrollTop;
-  //   const clientHeight = document.documentElement.clientHeight;
-  //   console.log("스크롤 이벤트 발생");
-  //   if (scrollTop + clientHeight >= scrollHeight) {
-  //     console.log("페이지 끝에 스크롤이 닫았음. ");
-  //     setPage((prev) => prev + 1);
-  //   }
-  // };
-
-  // const getdata = () => {
-  //   console.log("get함수 호출");
-  //!여기에 이제 파라미터로 페이지 번호 넣기
-  //   dispatch(getMyPosts());
-  // };
-  //!페이지가 달라질 때마다 getdata함수를 호출
-  // useEffect(() => {
-  //   getdata();
-  // }, [page]);
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
 
   return (
     <>

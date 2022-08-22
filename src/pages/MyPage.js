@@ -12,7 +12,6 @@ const MyPage = () => {
         <Header />
         <PostLayout>
           <MyProfile />
-
           <Sidebar />
         </PostLayout>
       </Layout>
