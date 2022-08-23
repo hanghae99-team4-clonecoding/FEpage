@@ -40,16 +40,12 @@
   display: flex;
 }
 .info_icon {
-  width: 30px;
-  height: 30px;
+  width: 18px;
+  height: 18px;
   border-color: red;
-  /* background-color: white; */
+  background-color: white;
+  padding: 10px;
 }
-
 .info_number {
   margin: 5px;
-}
-.likes_red {
-  filter: invert(46%) sepia(98%) saturate(493%) hue-rotate(333deg)
-    brightness(94%) contrast(94%);
 }

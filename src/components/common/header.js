@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import styles from "../../css_modules/header.module.css";
 import logo_twitter from "../../svg/logo_twitter.svg";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerLogo}>
@@ -9,7 +11,7 @@ const Header = () => {
       </div>
 
       <div className={styles.headerWarp}>
-        <div className={styles.headerBox}>
+        <div className={styles.headerBox} onClick={() => navigate("/home")}>
           <div className={styles.header_tag}>🏠</div>
           <div className={styles.header_tag}>Home</div>
         </div>
@@ -33,7 +35,7 @@ const Header = () => {
           <div className={styles.header_tag}>📄</div>
           <div className={styles.header_tag}>Lists</div>
         </div>
-        <div className={styles.headerBox}>
+        <div className={styles.headerBox} onClick={() => navigate("/mypage")}>
           <div className={styles.header_tag}>👥</div>
           <div className={styles.header_tag}>Profile</div>
         </div>
@@ -45,7 +47,6 @@ const Header = () => {
           <button className={styles.header_button}>트윗하기</button>
         </div>
       </div>
-
     </header>
   );
 };
