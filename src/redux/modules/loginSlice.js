@@ -11,26 +11,23 @@ const initialState = {
 };
 
 //! 로그인,  아이디랑 비밀번호 보내기
-export const loginDb = createAsyncThunk(
-  "post/loginDb",
-  async ({ loginidpw, navigate }) => {
-    try {
-      const response = await axios.post(
-        `http://43.200.176.108/api/login`,
-        loginidpw
-      );
-      console.log(response.data);
-      const accessToken = response.data.token;
-      setCookie("is_login", `${accessToken}`);
-      //   navigate("/home");
-      return response.data.token;
-    } catch (error) {
-      console.log(error.response.data.error);
-      alert(error.response.data.error);
-      return error.code;
-    }
+export const loginDb = createAsyncThunk("post/loginDb", async (loginidpw) => {
+  try {
+    const response = await axios.post(
+      `http://43.200.176.108/api/login`,
+      loginidpw
+    );
+    console.log(response.data);
+    const accessToken = response.data.token;
+    setCookie("is_login", `${accessToken}`);
+    alert("환영합니다.");
+    return response.data.token;
+  } catch (error) {
+    console.log(error.response.data.error);
+    alert(error.response.data.error);
+    return error.code;
   }
-);
+});
 
 const loginSlice = createSlice({
   name: "loginData",
