@@ -35,7 +35,7 @@ const Tap = ({ tap }) => {
                 <div className={styles.list_contents}>
                   <div className={styles.desc}>{x.content}</div>
                   <div className={styles.imgArea}>
-                    <img src={x.image} alt="" />
+                    <img src={x.image} className={styles.img} alt="" />
                   </div>
                   <div className={styles.list_info}>
                     <div>

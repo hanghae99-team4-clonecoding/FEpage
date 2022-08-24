@@ -70,7 +70,7 @@ const MainList = () => {
                 <div className={styles.list_contents}>
                   <div className={styles.desc}>{x.content}</div>
                   <div className={styles.imgArea}>
-                    <img src={x.image} alt="" />
+                    <img src={x.image} alt="" className={styles.img} />
                   </div>
                   <div className={styles.list_info}>
                     <div>

@@ -53,3 +53,7 @@
   filter: invert(46%) sepia(98%) saturate(493%) hue-rotate(333deg)
     brightness(94%) contrast(94%);
 }
+.img {
+  width: 20rem;
+  background-size: cover;
+}

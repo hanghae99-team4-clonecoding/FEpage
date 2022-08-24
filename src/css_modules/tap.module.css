@@ -53,3 +53,7 @@
   margin-top: 10px;
   padding-top: 20px;
 }
+.img {
+  width: 20rem;
+  background-size: cover;
+}

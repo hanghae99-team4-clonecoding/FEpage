@@ -8,6 +8,7 @@ import icon_list from "../../svg/icon_list.svg";
 import icon_mail from "../../svg/icon_mail.svg";
 import icon_more from "../../svg/icon_more.svg";
 import logo_twitter from "../../svg/logo_twitter.svg";
+import icon_people from "../../svg/icon_people.svg";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ const Header = () => {
         <div className={styles.headerBox} onClick={() => navigate("/mypage")}>
           <div className={styles.header_tag}>
             {" "}
-            {/* <img src={icon_profile}></img> */}
+            <img src={icon_people}></img>
           </div>
           <div className={styles.header_tag}>Profile</div>
         </div>
