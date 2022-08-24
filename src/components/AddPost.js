@@ -78,8 +78,13 @@ const AddPost = () => {
         </div>
         <div className={styles.btnWarp}>
           <img src={icon_picture}></img>
-          //!이미지만
-          <input type={"file"} accept="image/*" onChange={uploadFb} />
+          <input
+            type={"file"}
+            accept="image/*"
+            onChange={uploadFb}
+            className={styles.inputImg}
+          />
+
           <button>트윗하기</button>
         </div>
       </div>

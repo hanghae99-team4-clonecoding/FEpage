@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import api from "../../api/api";
+import { getCookie, setCookie } from "../../api/cookie";
 
 //http://43.200.177.45/api/post
 //http://43.200.177.45/api/test/post
@@ -16,9 +17,13 @@ const getPosts = createAsyncThunk(
   "get/getPosts",
   async ({ page, setError }) => {
     try {
-      const res = await axios.get(
-        `http://43.200.176.108/api/test/post?page=${page}`
-      );
+      const res = await axios({
+        method: "get",
+        url: `http://43.200.176.108/api/post?page=${page}`,
+        headers: {
+          authorization: `Bearer ${getCookie("is_login")}`,
+        },
+      });
       // api("/test/post");
       console.log("response", res.data.data);
       if (res.data.data === undefined) {
@@ -35,9 +40,13 @@ export const likes_handler = createAsyncThunk(
   "get/likes_handler",
   async (postId) => {
     try {
-      const res = await axios.post(
-        `http://43.200.177.45/api/test/like/${postId}`
-      );
+      const res = await axios({
+        method: "post",
+        url: `http://43.200.177.45/api/test/like/${postId}`,
+        headers: {
+          authorization: `Bearer ${getCookie("is_login")}`,
+        },
+      });
       console.log(postId);
       // api("/test/post");
       console.log("response", res);

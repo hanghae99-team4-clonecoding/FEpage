@@ -1,9 +1,15 @@
 import { useState } from "react";
+import { loginDb } from "../redux/modules/loginSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 function LoginModal({ loginPopup, openLoginModal }) {
-  console.log(loginPopup)
+  console.log(loginPopup);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const initialState = {
     email: "",
-    password: ""
+    password: "",
   };
   const [userData, setUserData] = useState(initialState);
 
@@ -14,42 +20,55 @@ function LoginModal({ loginPopup, openLoginModal }) {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-
-  }
-  console.log(userData)
-
+    dispatch(loginDb({ userData, navigate }));
+  };
+  console.log(userData);
 
   return (
-    <div style={{
-      background: "rgba(0,0,0,0.1)",
-      height: "1090px",
-      width: "1024px",
-      zIndex: 999,
-      position: 'absolute',
-      top: 0,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }}>
-      <div style={{
-        background: "white",
-        height: "70vh",
-        width: "50vw",
-      }}>
+    <div
+      style={{
+        background: "rgba(0,0,0,0.1)",
+        height: "1090px",
+        width: "1024px",
+        zIndex: 999,
+        position: "absolute",
+        top: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div
+        style={{
+          background: "white",
+          height: "70vh",
+          width: "50vw",
+        }}
+      >
         <div className="divCloseBtn">
           <button className="closeBtn" onClick={openLoginModal}>
             X
           </button>
         </div>
-        <form onSubmit={onSubmitHandler} >
+        <form onSubmit={onSubmitHandler}>
           <div className="InputBox">
-            <p>
-              트위터에 로그인하기
-            </p>
+            <p>트위터에 로그인하기</p>
             <label>이메일</label>
-            <input type="email" name='email' value={userData.email} onChange={onChangeHandler} placeholder="이메일 주소를 입력하세요" />
+            <input
+              type="email"
+              name="email"
+              value={userData.email}
+              onChange={onChangeHandler}
+              placeholder="이메일 주소를 입력하세요"
+            />
             <label>패스워드</label>
-            <input type="password" name='password' value={userData.password} onChange={onChangeHandler} placeholder="비밀번호를 입력하세요" />
+            <input
+              type="password"
+              name="password"
+              value={userData.password}
+              onChange={onChangeHandler}
+              placeholder="비밀번호를 입력하세요"
+            />
           </div>
           <div className="divLoginBtn">
             <button className="loginBtn" type="submit">
@@ -57,10 +76,9 @@ function LoginModal({ loginPopup, openLoginModal }) {
             </button>
           </div>
         </form>
-      </div >
+      </div>
     </div>
   );
-};
-
+}
 
 export default LoginModal;

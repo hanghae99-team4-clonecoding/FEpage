@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { getCookie, setCookie } from "../../api/cookie";
 
 //http://43.200.177.45/api/post
 //http://43.200.177.45/api/test/post
@@ -13,7 +14,13 @@ const initialState = {
 //http://localhost:3001/post
 const getMyPosts = createAsyncThunk("get/getMyPosts", async (thunkApi) => {
   try {
-    const res = await axios.get(`http://43.200.176.108/api/test/post/profile`);
+    const res = await axios({
+      method: "get",
+      url: `http://43.200.176.108/api/test/post/profile`,
+      headers: {
+        authorization: `Bearer ${getCookie("is_login")}`,
+      },
+    });
     console.log(res);
     return res.data.data;
   } catch (error) {
