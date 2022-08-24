@@ -16,7 +16,7 @@ const getMyPosts = createAsyncThunk("get/getMyPosts", async (thunkApi) => {
   try {
     const res = await axios({
       method: "get",
-      url: `http://43.200.176.108/api/test/post/profile`,
+      url: `http://43.200.176.108/api/post/profile`,
       headers: {
         authorization: `Bearer ${getCookie("is_login")}`,
       },
