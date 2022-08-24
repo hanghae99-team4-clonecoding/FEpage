@@ -26,6 +26,7 @@ const getPosts = createAsyncThunk(
       }
       return res.data.data;
     } catch (error) {
+
       return error.message;
     }
   }

@@ -64,8 +64,8 @@ function AccessPage() {
           }} onClick={() => navigate('/')}>
             <Ic>
               <FcGoogle size="24"></FcGoogle>
-            </Ic>
             Google 계정으로 가입하기(구현X)
+            </Ic>
           </button>
         </GoogleBtn>
 
@@ -79,6 +79,7 @@ function AccessPage() {
         }} onClick={() => navigate('/')}>
           Apple에서 가입하기(구현X)
         </button>
+        apple에서 가입하기(구현X)
 
         <p style={{ marginLeft: "120px" }}>또는</p>
 
