@@ -1,12 +1,3 @@
-.fixed {
-  top: 0;
-  position: fixed;
-  padding: 20px;
-  display: block;
-  background-color: black;
-  color: white;
-}
-
 .postWarp {
   margin-top: 50px;
   padding: 20px;
