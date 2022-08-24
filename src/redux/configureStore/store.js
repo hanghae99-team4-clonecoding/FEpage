@@ -9,7 +9,7 @@ import { myPostSlice } from "../modules/myPageSlice";
 export default configureStore({
   //state를 등록한다(객체를)
   reducer: {
-    postSlice: postSlice.reducer,
+    postSlice: postSlice.reducer, 
     myPostSlice: myPostSlice.reducer,
   },
   devTools: process.env.NODE_ENV !== "development",
