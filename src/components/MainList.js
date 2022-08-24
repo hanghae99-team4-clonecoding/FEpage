@@ -8,18 +8,36 @@ import { useSelector, useDispatch } from "react-redux";
 import { getPosts } from "../redux/modules/mainListSlice";
 import { useEffect, useState } from "react";
 import Likes from "./Likes";
+import axios from "axios";
 
 const MainList = () => {
   const [test, setTest] = useState(0);
   const dispatch = useDispatch();
   const data = useSelector((state) => state.postSlice.posts);
   const [error, setError] = useState(false);
+  const [deleteId, setDeleteId] = useState("");
+
   if (error == true) {
     console.log("마지막 페이지 입니다.");
   }
   const [loadingToggle, setLoadingToggle] = useState(false);
 
   const [page, setPage] = useState(1);
+
+  console.log(data)
+
+  // post 삭제 기능
+  const onClickDelete = (e) => {
+    setDeleteId(e.target.value)
+    deleteAxios()
+  }
+
+  const deleteAxios = async () => {
+    const json = await axios.delete(`http://43.200.176.108/api/test/post/${deleteId}`);
+    console.log(json)
+  };
+
+  console.log(deleteId)
 
   //!무한스크롤 기능구현--------------
   const handleScroll = () => {
@@ -83,6 +101,7 @@ const MainList = () => {
                       ></img>
                       <span className={styles.info_number}>3</span>
                     </div>
+                    <button onClick={onClickDelete} value={x.postId}>삭제하기</button>
                   </div>
                 </div>
               </div>
