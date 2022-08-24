@@ -16,30 +16,36 @@ const AddPost = () => {
   const [postContet, setPostContent] = useState({ content: "" });
   const [email, setEmail] = useState({ email: "never@naver.com" });
   const [image, setImage] = useState({ image: "" });
+  const [isLoading, setLoading] = useState(false);
 
   const onChangeHandler = (e) => {
     setPostContent({ content: e.target.value });
     setPost({ ...post, ...email, ...postContet });
-    console.log(post);
   };
 
-  //firebase이미지 전송
+  //!firebase이미지 전송
   const file_link_ref = useRef(null);
   const uploadFb = async (e) => {
     console.log(e.target.files);
+    setLoading(true);
     const uploaded_file = await uploadBytes(
       ref(storage, `images/${e.target.files[0].name}`),
       e.target.files[0]
     );
     console.log(uploaded_file);
     const file_url = await getDownloadURL(uploaded_file.ref);
+
     console.log(file_url);
     file_link_ref.current = file_url;
     setPost({ ...post, image: file_link_ref.current });
     //!로딩중 기능추가 하기
   };
   //!여기까지
-
+  setTimeout(() => {
+    if (isLoading === true) {
+      setLoading(false);
+    }
+  }, 4000);
   // 데이터 전송
   const sendPost = async () => {
     const json = await axios.post("http://43.200.176.108/api/test/post", post);
@@ -55,7 +61,7 @@ const AddPost = () => {
 
   return (
     <form onSubmit={onSubmitHandler} className={styles.container}>
-      {/* <Loading /> */}
+      {isLoading ? <Loading /> : null}
       <div className={styles.postWarp}>
         <div className={styles.addPostArea}>
           <div className={styles.profileImg}>
