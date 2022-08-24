@@ -17,7 +17,7 @@ const getPosts = createAsyncThunk(
   async ({ page, setError }) => {
     try {
       const res = await axios.get(
-        `http://43.200.177.45/api/test/post?page=${page}`
+        `http://43.200.176.108/api/test/post?page=${page}`
       );
       // api("/test/post");
       console.log("response", res.data.data);
@@ -25,6 +25,23 @@ const getPosts = createAsyncThunk(
         setError(true);
       }
       return res.data.data;
+    } catch (error) {
+      return error.message;
+    }
+  }
+);
+
+export const likes_handler = createAsyncThunk(
+  "get/likes_handler",
+  async (postId) => {
+    try {
+      const res = await axios.post(
+        `http://43.200.177.45/api/test/like/${postId}`
+      );
+      console.log(postId);
+      // api("/test/post");
+      console.log("response", res);
+      return res.data;
     } catch (error) {
       return error.message;
     }

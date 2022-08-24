@@ -70,17 +70,26 @@
   background-color: gray;
   width: 30rem;
   height: 15rem;
+  position: relative;
 }
 .profile_myInfo {
-  width: 30rem;
+  width: 29rem;
   height: 15rem;
   color: aliceblue;
+  position: absolute;
+  top: 270px;
+  margin-left: 20px;
 }
 .myInfo_icon {
   width: 130px;
   height: 130px;
 }
-.profile_myInfo button {
+.myInfo_editBtn {
+  display: flex;
+  margin-right: 20px;
+  align-items: flex-end;
+}
+.editBtn_btn {
   width: 100px;
   height: 36px;
   background-color: black;
@@ -88,4 +97,28 @@
   font-size: 15px;
   border-radius: 20px;
   border-color: white;
+}
+.layoutEdit {
+  display: flex;
+  justify-content: space-between;
+}
+.myInfo_email {
+  margin-top: 10px;
+}
+myInfo_follower {
+}
+.myInfo_tab {
+}
+.tab_button {
+  width: 8rem;
+  background-color: unset;
+  color: white;
+  height: 2rem;
+  margin: 10px;
+  border-style: none;
+}
+.tab_button:hover {
+  background-color: rgb(48, 45, 45);
+  /* opacity: 0.3; */
+  border-bottom: rgb(15, 124, 240) 2px;
 }

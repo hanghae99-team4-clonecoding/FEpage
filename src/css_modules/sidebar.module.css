@@ -6,7 +6,7 @@
 
 .sidebar_box input {
   margin-bottom: 20px;
-  background-color: #16181C;
+  background-color: #16181c;
   border: none;
   height: 30px;
   border-radius: 15px;
@@ -15,7 +15,7 @@
 }
 
 .trendBox {
-  background-color: #16181C;
+  background-color: #16181c;
   color: white;
   display: flex;
   flex-direction: column;
@@ -31,4 +31,12 @@
 
 .textBox:not(:last-child) {
   margin-bottom: 30px;
+}
+.textBox {
+  display: flex;
+  width: 10rem;
+  height: 3rem;
+}
+.textBox:hover {
+  background-color: #262930;
 }
