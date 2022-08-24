@@ -4,6 +4,7 @@ import styles from "../css_modules/mainList.module.css";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { likes_handler } from "../redux/modules/mainListSlice";
+
 const Likes = ({ postId }) => {
   const dispatch = useDispatch();
   const [test, setTest] = useState(0);

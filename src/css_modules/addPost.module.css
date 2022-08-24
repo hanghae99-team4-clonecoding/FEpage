@@ -5,7 +5,6 @@
   background-color: black;
 }
 
-
 .postWarp h2 {
   margin-bottom: 30px;
 }
@@ -43,9 +42,13 @@
 .btnWarp button {
   width: 100px;
   height: 36px;
-  background-color: #1C9BF0;
+  background-color: #1c9bf0;
   color: white;
   font-size: 15px;
   border-radius: 20px;
   border: none;
+}
+.inputImg {
+  background-color: none;
+  color: black;
 }
