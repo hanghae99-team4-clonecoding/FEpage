@@ -7,32 +7,25 @@ const Sidebar = () => {
       <div className={styles.trendBox}>
         <h2>나를 위한 트렌드</h2>
         <div className={styles.textBox}>
-          <div>Trends for you</div>
-          <p>내용 추가 예정....</p>
+          <p>아이브</p>
         </div>
         <div className={styles.textBox}>
-          <div>Trends for you</div>
-          <p>내용 추가 예정....</p>
+          <p>forever1</p>
         </div>
         <div className={styles.textBox}>
-          <div>Trends for you</div>
-          <p>내용 추가 예정....</p>
+          <p>#소녀시대</p>
         </div>
         <div className={styles.textBox}>
-          <div>Trends for you</div>
-          <p>내용 추가 예정....</p>
+          <p>#좋은 노래 추천 </p>
         </div>
         <div className={styles.textBox}>
-          <div>Trends for you</div>
-          <p>내용 추가 예정....</p>
+          <p>#남자아이돌 노래 </p>
         </div>
         <div className={styles.textBox}>
-          <div>Trends for you</div>
-          <p>내용 추가 예정....</p>
+          <p>new jeans</p>
         </div>
         <div className={styles.textBox}>
-          <div>Trends for you</div>
-          <p>내용 추가 예정....</p>
+          <p>국내여름 팝송</p>
         </div>
       </div>
     </div>

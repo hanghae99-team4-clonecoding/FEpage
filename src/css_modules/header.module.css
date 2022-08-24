@@ -22,8 +22,8 @@
 .headerBox {
   display: flex;
   margin-bottom: 30px;
+  cursor: pointer;
 }
-
 
 .headerBox :nth-child(2) {
   margin-left: 10px;
@@ -32,7 +32,7 @@
 .header_button {
   width: 230px;
   height: 52px;
-  background-color: #1C9BF0;
+  background-color: #1c9bf0;
   color: white;
   font-size: 17px;
   border-radius: 30px;

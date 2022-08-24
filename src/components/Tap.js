@@ -17,47 +17,54 @@ const Tap = ({ tap }) => {
   // }, []);
 
   if (tap === 0) {
-    return data.map((x, i) => {
-      // const email = x.email.split("@");
-      // setId(email[0]);
-      return (
-        <div key={x.postId} className={styles.mainWarp}>
-          <div className={styles.profileImg}>
-            <img src={icon_profile} />
-          </div>
-
-          <div className={styles.list_container}>
-            <div className={styles.profileWarp}>
-              <div className={styles.list_profile}></div>
-            </div>
-
-            <span>{email}</span>
-            <div className={styles.list_contents}>
-              <div className={styles.desc}>{x.content}</div>
-              <div className={styles.imgArea}>
-                <img src={x.image} alt="" />
+    return (
+      <div className={styles.tap_box}>
+        {data.map((x, i) => {
+          return (
+            <div key={x.postId} className={styles.mainWarp}>
+              <div className={styles.profileImg}>
+                <img src={icon_profile} />
               </div>
-              <div className={styles.list_info}>
-                <div>
-                  <img className={styles.info_icon} src={icon_likes}></img>
-                  <span className={styles.info_number}>2</span>
+
+              <div className={styles.list_container}>
+                <div className={styles.profileWarp}>
+                  <div className={styles.list_profile}></div>
                 </div>
-                <div>
-                  <img className={styles.info_icon} src={icon_comment}></img>
-                  <span className={styles.info_number}>3</span>
+
+                <span>{email}</span>
+                <div className={styles.list_contents}>
+                  <div className={styles.desc}>{x.content}</div>
+                  <div className={styles.imgArea}>
+                    <img src={x.image} alt="" />
+                  </div>
+                  <div className={styles.list_info}>
+                    <div>
+                      <img className={styles.info_icon} src={icon_likes}></img>
+                      <span className={styles.info_number}>2</span>
+                    </div>
+                    <div>
+                      <img
+                        className={styles.info_icon}
+                        src={icon_comment}
+                      ></img>
+                      <span className={styles.info_number}>3</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      );
-    });
+          );
+        })}
+      </div>
+    );
   }
   if (tap === 1) {
-    return <div>1번탭</div>;
+    return <div className={styles.tap_box}>You don’t have any likes yet</div>;
   }
   if (tap === 2) {
-    return <div>2번탭</div>;
+    return (
+      <div className={styles.tap_box}>You don’t have any comments yet</div>
+    );
   }
 };
 export default Tap;

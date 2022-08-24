@@ -13,7 +13,7 @@ const initialState = {
 //http://localhost:3001/post
 const getMyPosts = createAsyncThunk("get/getMyPosts", async (thunkApi) => {
   try {
-    const res = await axios.get(`http://43.200.177.45/api/test/post/profile`);
+    const res = await axios.get(`http://43.200.176.108/api/test/post/profile`);
     console.log(res);
     return res.data.data;
   } catch (error) {

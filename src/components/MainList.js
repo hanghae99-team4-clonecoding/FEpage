@@ -10,15 +10,15 @@ import { useEffect, useState } from "react";
 import Likes from "./Likes";
 
 const MainList = () => {
+  const [test, setTest] = useState(0);
   const dispatch = useDispatch();
   const data = useSelector((state) => state.postSlice.posts);
-
   const [error, setError] = useState(false);
   if (error == true) {
     console.log("마지막 페이지 입니다.");
   }
   const [loadingToggle, setLoadingToggle] = useState(false);
-  //!처음에 빈배열로 들어온다.
+
   const [page, setPage] = useState(1);
 
   //!무한스크롤 기능구현--------------
@@ -74,7 +74,7 @@ const MainList = () => {
                   </div>
                   <div className={styles.list_info}>
                     <div>
-                      <Likes i={i} />
+                      <Likes postId={x.postId} setTest={setTest} />
                     </div>
                     <div>
                       <img

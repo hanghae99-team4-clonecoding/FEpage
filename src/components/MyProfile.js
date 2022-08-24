@@ -24,37 +24,48 @@ const MyProfile = () => {
         <div className={styles.postWarp}>
           <section className={styles.profile_background}></section>
           <section className={styles.profile_myInfo}>
-            <img className={styles.myInfo_icon} src={icon_profile}></img>
-            <p>{email}</p>
-            <button>Edit Profile</button>
-            <p>
+            <div className={styles.layoutEdit}>
+              <img className={styles.myInfo_icon} src={icon_profile}></img>
+              <section className={styles.myInfo_editBtn}>
+                {" "}
+                <button className={styles.editBtn_btn}>Edit Profile</button>
+              </section>
+            </div>
+
+            <p className={styles.myInfo_email}>{email}</p>
+
+            <span className={styles.myInfo_follower}>
               Following <span>5</span>
-            </p>
-            <p>
               Followers <span>3</span>
-            </p>
-            <a
-              onClick={() => {
-                setTap(0);
-              }}
-            >
-              트윗
-            </a>
-            <a
-              onClick={() => {
-                setTap(1);
-              }}
-            >
-              좋아요
-            </a>
-            <a
-              onClick={() => {
-                setTap(2);
-              }}
-            >
-              댓글
-            </a>
-            <Tap tap={tap} />
+            </span>
+            <section className={styles.myInfo_tab}>
+              {" "}
+              <button
+                className={styles.tab_button}
+                onClick={() => {
+                  setTap(0);
+                }}
+              >
+                트윗
+              </button>
+              <button
+                className={styles.tab_button}
+                onClick={() => {
+                  setTap(1);
+                }}
+              >
+                좋아요
+              </button>
+              <button
+                className={styles.tab_button}
+                onClick={() => {
+                  setTap(2);
+                }}
+              >
+                댓글
+              </button>
+              <Tap tap={tap} />
+            </section>
           </section>
         </div>
       </div>
