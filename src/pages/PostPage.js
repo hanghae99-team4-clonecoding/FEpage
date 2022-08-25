@@ -9,8 +9,8 @@ import Layout from "../components/common/layout";
 const PostPage = () => {
   return (
     <Layout>
-      <Header />
       <PostLayout>
+        <Header />
         <MainContents>
           <AddPost />
           <MainList />

@@ -33,21 +33,22 @@ const MainList = () => {
   const dleteOk = (deleteId) => {
     deleteAxios(deleteId);
     setTimeout(() => {
-      window.location.reload()
+      window.location.reload();
     }, 300);
-  }
+  };
 
   const deleteAxios = async (deleteId) => {
     const json = await axios.delete(
-      `http://43.200.176.108/api/post/${deleteId}`, {
-      headers: {
-        authorization: `Bearer ${getCookie("is_login")}`,
-      },
-    });
+      `http://43.200.176.108/api/post/${deleteId}`,
+      {
+        headers: {
+          authorization: `Bearer ${getCookie("is_login")}`,
+        },
+      }
+    );
     console.log(json);
   };
   // -------------------------------
-
 
   //!무한스크롤 기능구현--------------
   const handleScroll = () => {
@@ -102,7 +103,11 @@ const MainList = () => {
                   </div>
                   <div className={styles.list_info}>
                     <div>
-                      <Likes postId={x.postId} setTest={setTest} />
+                      <Likes
+                        postId={x.postId}
+                        count={x.likeCount}
+                        setTest={setTest}
+                      />
                     </div>
                     <div>
                       <img

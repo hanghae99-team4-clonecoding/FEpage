@@ -40,7 +40,7 @@ const Tap = ({ tap }) => {
                   <div className={styles.list_info}>
                     <div>
                       <img className={styles.info_icon} src={icon_likes}></img>
-                      <span className={styles.info_number}>2</span>
+                      <span className={styles.info_number}>{x.likeCount}</span>
                     </div>
                     <div>
                       {/* {data.length === 0 ? (

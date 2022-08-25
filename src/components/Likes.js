@@ -5,17 +5,18 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { likes_handler } from "../redux/modules/mainListSlice";
 
-const Likes = ({ postId }) => {
+const Likes = ({ postId, count }) => {
   const dispatch = useDispatch();
   const [test, setTest] = useState(0);
   const number = Number(postId);
+  const [counter, setCounter] = useState(count);
   //!좋아요 이벤트 ==> 값 바꿔주는 것도 해보기
   const [likesToggle, setLikesToggle] = useState(true);
   const likes = () => {
     setLikesToggle(!likesToggle);
     dispatch(likes_handler(postId));
     console.log(postId);
-    //!디스패치로 아이디 보내기
+    setCounter((counter) => counter + 1);
   };
   // useEffect(() => {
   //   dispatch(likes_handler(test));
@@ -37,7 +38,7 @@ const Likes = ({ postId }) => {
         ></img>
       )}
 
-      <span className={styles.info_number}>2</span>
+      <span className={styles.info_number}>{counter}</span>
     </>
   );
 };
