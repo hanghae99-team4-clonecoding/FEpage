@@ -20,7 +20,6 @@ const AddPost = () => {
   const userEmail = localStorage.getItem("email");
   const [postContet, setPostContent] = useState({ content: "" });
   const [email, setEmail] = useState({ email: userEmail });
-  console.log(userEmail)
   const [isLoading, setLoading] = useState(false);
 
   const onChangeHandler = (e) => {
@@ -81,19 +80,23 @@ const AddPost = () => {
           <div className={styles.profileImg}>
             <img src={icon_profile} />
           </div>
-          <textarea
-            onChange={onChangeHandler}
-            name="content"
-            id=""
-            cols="30"
-            rows="1"
-            placeholder="무슨일이 일어나고 있나요?"
-          ></textarea>
+          <div className={styles.textAreaWarp}>
+            <textarea
+              onChange={onChangeHandler}
+              name="content"
+              id=""
+              cols="30"
+              rows="1"
+              placeholder="무슨일이 일어나고 있나요?"
+            ></textarea>
+          </div>
         </div>
         <div className={styles.btnWarp}>
-          <img src={icon_picture}></img>
+          <label htmlFor="fileInput">
+            <img src={icon_picture}></img>
+          </label>
           //!이미지만
-          <input type={"file"} accept="image/*" onChange={uploadFb} />
+          <input id="fileInput" type="file" accept="image/*" onChange={uploadFb} />
           <button>트윗하기</button>
         </div>
       </div>

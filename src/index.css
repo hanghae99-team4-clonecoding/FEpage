@@ -104,7 +104,12 @@ section {
 
 body {
   line-height: 1;
-  background-color: white;
+  background-color: black;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 ol,

@@ -14,16 +14,33 @@
   margin-bottom: 30px;
 }
 
+.textAreaWarp {
+  width: 100%;
+  vertical-align: middle;
+}
+
+
 .addPostArea textarea {
   width: 100%;
   background-color: black;
   border: none;
   height: 50px;
   color: white;
+  font-size: 30px;
+  resize: none;
+  -ms-overflow-style: none;
+}
+
+.addPostArea textarea::-webkit-scrollbar {
+  display: none;
 }
 
 .addPostArea textarea::placeholder {
   font-size: 30px;
+}
+
+.addPostArea textarea:focus {
+  outline: none;
 }
 
 .profileImg {
@@ -48,6 +65,11 @@
   border-radius: 20px;
   border: none;
 }
+
+.btnWarp input {
+  display: none;
+}
+
 .inputImg {
   background-color: none;
   color: black;
