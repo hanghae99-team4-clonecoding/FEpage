@@ -83,6 +83,8 @@
 .myInfo_icon {
   width: 130px;
   height: 130px;
+  background-color: rgb(98, 36, 114);
+  border-radius: 100px;
 }
 .myInfo_editBtn {
   display: flex;
@@ -121,4 +123,15 @@ myInfo_follower {
   background-color: rgb(48, 45, 45);
   /* opacity: 0.3; */
   border-bottom: rgb(15, 124, 240) 2px;
+}
+.myInfo_follower {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgb(167, 162, 162);
+  padding: 5px;
+  margin: 10px 10px 0 0;
+}
+.number {
+  font-weight: 700;
+  /* margin-left: 10px; */
 }
