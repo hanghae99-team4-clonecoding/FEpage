@@ -105,14 +105,11 @@ section {
 body {
   line-height: 1;
   background-color: black;
-<<<<<<< HEAD
-=======
   -ms-overflow-style: none;
 }
 
 body::-webkit-scrollbar {
   display: none;
->>>>>>> e31e624773ac75ce8de775becfd9e4f2ae060f3d
 }
 
 ol,
