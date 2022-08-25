@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { loginDb } from "../redux/modules/loginSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function LoginModal({ loginPopup, openLoginModal }) {
+  const navigate = useNavigate();
   console.log(loginPopup);
   const dispatch = useDispatch();
 
@@ -19,7 +21,7 @@ function LoginModal({ loginPopup, openLoginModal }) {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    dispatch(loginDb(userData));
+    dispatch(loginDb({ navigate, userData }));
   };
   console.log(userData);
 

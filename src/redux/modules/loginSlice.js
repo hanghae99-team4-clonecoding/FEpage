@@ -7,27 +7,34 @@ const initialState = {
   loading: false,
   loginDb: [],
   token: "",
+  email: "",
   error: "",
 };
 
 //! 로그인,  아이디랑 비밀번호 보내기
-export const loginDb = createAsyncThunk("post/loginDb", async (loginidpw) => {
-  try {
-    const response = await axios.post(
-      `http://43.200.176.108/api/login`,
-      loginidpw
-    );
-    console.log(response.data);
-    const accessToken = response.data.token;
-    setCookie("is_login", `${accessToken}`);
-    alert("환영합니다.");
-    return response.data.token;
-  } catch (error) {
-    console.log(error.response.data.error);
-    alert(error.response.data.error);
-    return error.code;
+export const loginDb = createAsyncThunk(
+  "post/loginDb",
+  async ({ navigate, userData }) => {
+    try {
+      const response = await axios.post(
+        `http://43.200.176.108/api/login`,
+        userData
+      );
+      console.log(response.data);
+      const accessToken = response.data.token;
+      setCookie("is_login", `${accessToken}`);
+      alert("환영합니다.");
+      localStorage.setItem("email", response.data.email);
+      navigate("/home");
+      return response.data;
+    } catch (error) {
+      console.log(userData);
+      console.log(error.response.data.error);
+      alert(error.response.data.error);
+      return error.code;
+    }
   }
-});
+);
 
 const loginSlice = createSlice({
   name: "loginData",
@@ -40,7 +47,8 @@ const loginSlice = createSlice({
     });
     builder.addCase(loginDb.fulfilled, (state, action) => {
       state.loading = false;
-      state.loginDb = action.payload;
+      state.loginDb = action.payload.token;
+      state.email = action.payload.email;
       //state에 토큰저장
       state.error = "";
     });

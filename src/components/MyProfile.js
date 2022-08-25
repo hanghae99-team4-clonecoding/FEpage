@@ -7,7 +7,10 @@ import { getMyPosts } from "../redux/modules/myPageSlice";
 
 const MyProfile = () => {
   const dispatch = useDispatch();
-  const email = useSelector((state) => state.myPostSlice.email);
+  const email = localStorage.getItem("email");
+  // const email = useSelector((state) => state.loginSlice.email);
+  console.log(email);
+  //const email = useSelector((state) => state.myPostSlice.email);
   // const [id, address] = email.split("@");
   // console.log(id);
   const [tap, setTap] = useState(0);
