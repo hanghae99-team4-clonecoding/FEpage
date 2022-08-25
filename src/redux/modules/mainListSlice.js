@@ -42,7 +42,7 @@ export const likes_handler = createAsyncThunk(
     try {
       const res = await axios({
         method: "post",
-        url: `http://43.200.177.45/api/test/like/${postId}`,
+        url: `http://43.200.176.108/api/like/${postId}`,
         headers: {
           authorization: `Bearer ${getCookie("is_login")}`,
         },
@@ -52,6 +52,7 @@ export const likes_handler = createAsyncThunk(
       console.log("response", res);
       return res.data;
     } catch (error) {
+      console.log(error);
       return error.message;
     }
   }
