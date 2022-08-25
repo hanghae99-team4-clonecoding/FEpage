@@ -1,7 +1,6 @@
 .mainContents_box {
-  width: 70%;
+  width: 100%;
   background-color: black;
-  height: 100vh;
   border-right: 1px solid white;
   border-left: 1px solid white;
 }
