@@ -42,6 +42,75 @@ function AccessPage() {
     <div style={{ display: "flex" }}  >
       {loginPopup === false ? <></> : <LoginModal loginPopup={loginPopup} openLoginModal={openLoginModal} />}
       {joinPopup === false ? <></> : <JoinModal joinPopup={joinPopup} openJoinModal={openJoinModal} />}
+<<<<<<< HEAD
+=======
+      <img src='https://abs.twimg.com/sticky/illustrations/lohp_1302x955.png' />
+      <Title>
+        <Titlecons>
+          <FaTwitter size="24" color="#0095ED" />
+        </Titlecons>
+        <Top>
+          <span>지금 일어나고 있는 일</span>
+        </Top>
+
+        <Middle>
+          <span>오늘 트위터에 가입하세요</span>
+        </Middle>
+
+        <GoogleBtn>
+          <button style={{
+            width: '274px',
+            height: '38px',
+            margin: '-15px ',
+            backgroundColor: '#fff',
+            fontColor: 'black',
+            borderColor: '#eee'
+          }} onClick={() => navigate('/')}>
+            <Ic>
+              <FcGoogle size="24"></FcGoogle>
+            Google 계정으로 가입하기(구현X)
+            </Ic>
+          </button>
+        </GoogleBtn>
+
+        <button style={{
+          width: '274px',
+          height: '38px',
+          margin: '15px',
+          backgroundColor: '#fff',
+          fontColor: 'black',
+          borderColor: '#eee'
+        }} onClick={() => navigate('/')}>
+          Apple에서 가입하기(구현X)
+        </button>
+        apple에서 가입하기(구현X)
+
+        <p style={{ marginLeft: "120px" }}>또는</p>
+
+        <button style={{
+          width: '274px',
+          height: '38px',
+          margin: '10px',
+          backgroundColor: '#0095ED',
+          fontColor: 'white',
+          borderColor: '#000'
+        }} onClick={openJoinModal}>이메일 주소로 가입하기</button>
+
+        <Agree>가입하시려면 쿠키 사용을 포함해 이용약관과 개인정보 처리방침에 동의해야 합니다.</Agree>
+
+        <IsJoin>이미 트위터에 가입하셨나요?</IsJoin>
+        <button style={{
+          width: '274px',
+          height: '38px',
+          margin: '14px',
+          backgroundColor: '#fff',
+          fontColor: '#0095ED'
+        }} onClick={openLoginModal}> 로그인 </button>
+
+      </Title>
+    </div>
+  )
+>>>>>>> 5a5210594f1a04bb0b31019e0e96643064b1bd7a
 
       <div style={
         {
