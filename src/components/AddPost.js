@@ -7,21 +7,26 @@ import { upload } from "@testing-library/user-event/dist/upload";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../api/firebase";
 import Loading from "./Loading";
+import { getCookie } from "../api/cookie";
+
+
 const AddPost = () => {
   const [post, setPost] = useState({
     email: "",
     content: "",
     image: "",
   });
+
+  const userEmail = localStorage.getItem("email");
   const [postContet, setPostContent] = useState({ content: "" });
-  const [email, setEmail] = useState({ email: "never@naver.com" });
-  const [image, setImage] = useState({ image: "" });
+  const [email, setEmail] = useState({ email: userEmail });
+  console.log(userEmail)
   const [isLoading, setLoading] = useState(false);
 
   const onChangeHandler = (e) => {
-    setPostContent({ content: e.target.value });
-    setPost({ ...post, ...email, ...postContet });
+    setPost({ ...post, ...email, content: e.target.value });
   };
+
 
   //!firebase이미지 전송
   const file_link_ref = useRef(null);
@@ -46,17 +51,26 @@ const AddPost = () => {
       setLoading(false);
     }
   }, 4000);
+
   // 데이터 전송
   const sendPost = async () => {
-    const json = await axios.post("http://43.200.176.108/api/test/post", post);
-    alert(json.data.message);
-  };
+    const res = await axios({
+      method: "post",
+      data: post,
+      url: `http://43.200.176.108/api/post`,
+      headers: {
+        authorization: `Bearer ${getCookie("is_login")}`,
+      },
+    });
+  }
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
     sendPost();
-    console.log(post);
-    window.location.reload();
+    // window.location.reload()
+    setTimeout(() => {
+      window.location.reload()
+    }, 300);
   };
 
   return (
@@ -78,13 +92,8 @@ const AddPost = () => {
         </div>
         <div className={styles.btnWarp}>
           <img src={icon_picture}></img>
-          <input
-            type={"file"}
-            accept="image/*"
-            onChange={uploadFb}
-            className={styles.inputImg}
-          />
-
+          //!이미지만
+          <input type={"file"} accept="image/*" onChange={uploadFb} />
           <button>트윗하기</button>
         </div>
       </div>

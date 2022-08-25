@@ -7,6 +7,7 @@ import Loading from "./Loading";
 import { useSelector, useDispatch } from "react-redux";
 import { getPosts } from "../redux/modules/mainListSlice";
 import { useEffect, useState } from "react";
+import { getCookie } from "../api/cookie";
 import Likes from "./Likes";
 import axios from "axios";
 
@@ -18,31 +19,35 @@ const MainList = () => {
   console.log(email);
   console.log(data);
   const [error, setError] = useState(false);
-  const [deleteId, setDeleteId] = useState("");
 
   if (error == true) {
     console.log("마지막 페이지 입니다.");
   }
-  const [loadingToggle, setLoadingToggle] = useState(false);
 
+  const [loadingToggle, setLoadingToggle] = useState(false);
   const [page, setPage] = useState(1);
 
   console.log(data);
 
-  // post 삭제 기능
-  const onClickDelete = (e) => {
-    setDeleteId(e.target.value);
-    deleteAxios();
-  };
+  // --------- post 삭제 기능 ---------
+  const dleteOk = (deleteId) => {
+    deleteAxios(deleteId);
+    setTimeout(() => {
+      window.location.reload()
+    }, 300);
+  }
 
-  const deleteAxios = async () => {
+  const deleteAxios = async (deleteId) => {
     const json = await axios.delete(
-      `http://43.200.176.108/api/test/post/${deleteId}`
-    );
+      `http://43.200.176.108/api/post/${deleteId}`, {
+      headers: {
+        authorization: `Bearer ${getCookie("is_login")}`,
+      },
+    });
     console.log(json);
   };
+  // -------------------------------
 
-  console.log(deleteId);
 
   //!무한스크롤 기능구현--------------
   const handleScroll = () => {
@@ -106,7 +111,7 @@ const MainList = () => {
                       ></img>
                       <span className={styles.info_number}>3</span>
                     </div>
-                    <button onClick={onClickDelete} value={x.postId}>
+                    <button onClick={() => dleteOk(x.postId)} value={x.postId}>
                       삭제하기
                     </button>
                   </div>
@@ -119,4 +124,5 @@ const MainList = () => {
     </>
   );
 };
+
 export default MainList;
