@@ -14,6 +14,7 @@ const Likes = ({ postId }) => {
   const likes = () => {
     setLikesToggle(!likesToggle);
     dispatch(likes_handler(postId));
+    console.log(postId);
     //!디스패치로 아이디 보내기
   };
   // useEffect(() => {
