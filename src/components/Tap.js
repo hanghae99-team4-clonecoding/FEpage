@@ -10,7 +10,7 @@ const Tap = ({ tap }) => {
   const data = useSelector((state) => state.myPostSlice.myPosts);
   const email = useSelector((state) => state.myPostSlice.email);
   const dispatch = useDispatch();
-  console.log(data);
+  console.log(data.length);
   console.log(email);
   // useEffect(() => {
   //   dispatch(getMyPosts());
@@ -43,6 +43,9 @@ const Tap = ({ tap }) => {
                       <span className={styles.info_number}>2</span>
                     </div>
                     <div>
+                      {/* {data.length === 0 ? (
+                        <div>아직 작성한 글이 없습니다</div>
+                      ) : null} */}
                       <img
                         className={styles.info_icon}
                         src={icon_comment}

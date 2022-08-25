@@ -14,6 +14,9 @@ const MainList = () => {
   const [test, setTest] = useState(0);
   const dispatch = useDispatch();
   const data = useSelector((state) => state.postSlice.posts);
+  const email = useSelector((state) => state.loginSlice.email);
+  console.log(email);
+  console.log(data);
   const [error, setError] = useState(false);
   const [deleteId, setDeleteId] = useState("");
 
@@ -24,20 +27,22 @@ const MainList = () => {
 
   const [page, setPage] = useState(1);
 
-  console.log(data)
+  console.log(data);
 
   // post 삭제 기능
   const onClickDelete = (e) => {
-    setDeleteId(e.target.value)
-    deleteAxios()
-  }
-
-  const deleteAxios = async () => {
-    const json = await axios.delete(`http://43.200.176.108/api/test/post/${deleteId}`);
-    console.log(json)
+    setDeleteId(e.target.value);
+    deleteAxios();
   };
 
-  console.log(deleteId)
+  const deleteAxios = async () => {
+    const json = await axios.delete(
+      `http://43.200.176.108/api/test/post/${deleteId}`
+    );
+    console.log(json);
+  };
+
+  console.log(deleteId);
 
   //!무한스크롤 기능구현--------------
   const handleScroll = () => {
@@ -101,7 +106,9 @@ const MainList = () => {
                       ></img>
                       <span className={styles.info_number}>3</span>
                     </div>
-                    <button onClick={onClickDelete} value={x.postId}>삭제하기</button>
+                    <button onClick={onClickDelete} value={x.postId}>
+                      삭제하기
+                    </button>
                   </div>
                 </div>
               </div>

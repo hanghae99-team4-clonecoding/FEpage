@@ -21,7 +21,7 @@ const getMyPosts = createAsyncThunk("get/getMyPosts", async (thunkApi) => {
         authorization: `Bearer ${getCookie("is_login")}`,
       },
     });
-    console.log(res);
+    console.log(res.data.data);
     return res.data.data;
   } catch (error) {
     console.log(error);
